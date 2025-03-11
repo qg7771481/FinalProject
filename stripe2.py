@@ -1,9 +1,44 @@
 from flask import Flask, request, jsonify
-from models import db, User, Question, Answer, Result
 
+from flask_login import LoginManager, login_user, login_required
+from auth import hashed_password
+from models import db, User, Question, Answer, Result
+from flask_bcrypt import Bcrypt
+import bcrypt
+
+
+bcrypt = Bcrypt
+login_manager = LoginManager()
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///python_quiz.db'
 db.init_app(app)
+
+
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+@app.get("/register/")
+def register(User):
+    email = request.args.get("email")
+    password = request.args.get("password")
+    if not email or not password:
+        return jsonify({'error': 'Email и пароль обовязковий!'}), 400
+    existing_user = User.query.filter_by(email=email).first()
+    if existing_user:
+        return jsonify({'error': 'Користувач з таким емейл вже є'}), 400
+    hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
+    new_user = User(email=email, password=hashed_password)
+    db.session.add(new_user)
+    db.session.commit()
+    login_user(new_user)
+    return jsonify({'message': 'Регистрація успішна!'})
+
+@app.get("/login/")
+def login():
+    email = request.args.get("email")
+    password = request.args.get("password")
+
 
 
 @app.post("/check")
