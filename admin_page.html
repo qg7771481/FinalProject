@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Адмінка</title>
+</head>
+<body>
+    <h1>Додати тест</h1>
+    <form action="{{ url_for('add_questions') }}" method="post">
+        <label>Питання: <input type="text" name="question" required></label><br>
+        <label>Правильна відповідь: <input type="text" name="correct_answer" required></label><br>
+        <button type="submit">Додати</button>
+    </form>
+
+    <h2>Список тестів</h2>
+    <ul>
+        {% for question in questions %}
+            <li>{{ question.text }} - <strong>{{ question.correct_answer }}</strong></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

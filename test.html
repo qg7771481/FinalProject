@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Тести</title>
+</head>
+<body>
+    <h1>Тести</h1>
+    <form action="{{ url_for('submit_test') }}" method="post">
+        {% for test in tests %}
+            <p>{{ test.text }}</p>
+            <input type="text" name="{{ test.id }}" required>
+        {% endfor %}
+        <button type="submit">Відправити</button>
+    </form>
+</body>
+</html>
