@@ -3,10 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Результат</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: #d63384;
+            text-shadow: 0 2px 5px rgba(214, 51, 132, 0.5);
+        }
+        p {
+            font-size: 22px;
+            font-weight: bold;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #d63384;
+            box-shadow: 0 0 15px rgba(214, 51, 132, 0.3);
+            display: inline-block;
+            margin: 20px 0;
+        }
+        a {
+            display: inline-block;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            box-shadow: 0 0 10px rgba(214, 51, 132, 0.5);
+        }
+        a:hover {
+            background: #c02674;
+        }
+    </style>
 </head>
 <body>
     <h1>Ваш результат</h1>
     <p>Ви набрали {{ score }}%</p>
     <a href="{{ url_for('tests') }}">Пройти ще раз</a>
+    <p></p>
+    <a href="{{url_for('profile') }}">подивитися профіль</a>
 </body>
 </html>
+
