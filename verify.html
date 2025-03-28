@@ -1,3 +1,67 @@
+<style>body {
+            color: #ff4da6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h3, h5 {
+            text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff1a75;
+        }
+        p {
+            background: rgba(255, 77, 166, 0.1);
+            border: 2px solid #ff4da6;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 15px #ff4da6;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        a {
+            color: rgba(255, 50, 100, 1);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-shadow: 0 0 10px #ff4da6;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            padding: 10px;
+        }
+        .header a {
+            margin-left: 20px;
+        }
+        .profile-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ff4da6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container a {
+            padding: 10px 20px;
+            background-color: #ff4da6;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .button-container a:hover {
+            background-color: #ff1a75;
+        }</style>
 <form method="POST" action="/verify/">
     <input type="hidden" name="email" value="{{ email }}">
     <label for="code">Enter Verification Code:</label>
@@ -8,3 +72,9 @@
 {% if error %}
     <p style="color:red">{{ error }}</p>
 {% endif %}
+<script>
+window.history.pushState(null, "", window.location.href);
+window.onpopstate = function() {
+    window.history.pushState(null, "", window.location.href);
+};
+</script>

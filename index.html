@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Добро пожаловать</title>
-	<style>
-		body {
-			background-color: white;
-			font-family: Arial, sans-serif;
-			text-align: center;
-		}
-		h3 {
-			margin-top: 80px;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать</title>
+    <style>
+        body {
+            color: #ff4da6;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h3, h5 {
+            text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff1a75;
+        }
+        p {
+            background: rgba(255, 77, 166, 0.1);
+            border: 2px solid #ff4da6;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 0 15px #ff4da6;
+            display: inline-block;
+            margin: 15px 0;
+        }
+        a {
+            color: rgba(255, 50, 100, 1);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-shadow: 0 0 10px #ff4da6;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            padding: 10px;
+        }
+        .header a {
+            margin-left: 20px;
+        }
+        .profile-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ff4da6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        .button-container a {
+            padding: 10px 20px;
+            background-color: #ff4da6;
+            border-radius: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .button-container a:hover {
+            background-color: #ff1a75;
+        }
+    </style>
 </head>
 <body>
-	<h3>Добро пожаловать</h3>
-	<h5>Простое приложение flask для получения персональных данных с помощью одноразового SMS-кода</h5>
-	<p>Для получения персональных данных перейдите по ссылке <a href="http://0.0.0.0:5000/signup">здесь</a>.</p>
-	<p>--------------------------------------------------------------</p>
+    <h3>Добро пожаловать</h3>
+    <h5>Це сайт для тестувань знаннь по пайтону якщо ви хочете перевірити свої знання починайте проходити тест</h5>
+    <p>ваш профіль: <a href="{{ url_for('profile') }}">тут</a>.</p>
+    <hr>
+
+    <div class="button-container">
+        <a href="{{ url_for('tests') }}">Начать тест</a>
+    </div>
 </body>
 </html>

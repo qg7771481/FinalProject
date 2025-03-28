@@ -3,12 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Профіль</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #d63384;
+            text-shadow: 0 2px 5px rgba(214, 51, 132, 0.5);
+        }
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: white;
+            border: 2px solid #d63384;
+            box-shadow: 0 0 15px rgba(214, 51, 132, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #d63384;
+            text-align: center;
+        }
+        th {
+            background-color: #d63384;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #fce4ec;
+        }
+        a {
+            display: inline-block;
+            background: #d63384;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(214, 51, 132, 0.5);
+        }
+        a:hover {
+            background: #c02674;
+        }
+    </style>
 </head>
 <body>
     <h1>Профіль користувача</h1>
-
     <p>Ваш середній бал: {{ average_score }}</p>
-
     <h2>Інформація про ваші тести</h2>
     <table>
         <thead>
@@ -30,7 +82,6 @@
             {% endfor %}
         </tbody>
     </table>
-
-        <p><a href="{{ url_for('logout') }}">Вийти</a></p>
+    <p><a href="{{ url_for('logout') }}">Вийти</a></p>
 </body>
 </html>
